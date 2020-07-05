@@ -1,0 +1,142 @@
+<app-header></app-header>
+<div class="p-grid tr container">
+    <div class="p-col p-align-right">
+        <i class="pi pi-circle-off"></i>
+        &nbsp;&nbsp;
+        <i class="pi pi-video"></i>
+    </div>
+</div>
+<div class="p-grid container" id="text-container">
+    <div class="p-col-1 tr">
+        <div class="fr" id="format">
+            <p-tieredMenu [model]="items"></p-tieredMenu>
+        </div>
+        <!-- <app-formatter id="app-formatter" [fontSize]="fontSize" [hidden]="!showFormatter"></app-formatter> -->
+        <p-card [hidden]="!showFormatter" styleClass="tc" id="app-formatter">
+            <div class="p-grid">
+                <div class="p-col-fixed" style="width:30px">
+                    <!-- <p-tieredMenu [model]="formatTabs"></p-tieredMenu> -->
+                    <span (click)="selectedFormatTab = 'text'"><i
+                            class="pi pi-desktop mb-20 hand formatter-tab-item"></i></span>
+                    <span (click)="selectedFormatTab = 'spacing'"><i
+                            class="pi pi-align-right mb-20 hand formatter-tab-item"></i></span>
+                    <span (click)="selectedFormatTab = 'background'"><i
+                            class="pi pi-palette mb-20 hand formatter-tab-item"></i></span>
+                    <span (click)="selectedFormatTab = 'ruler'"><i
+                            class="pi pi-pause mb-20 hand formatter-tab-item"></i></span>
+                </div>
+                <div class="p-col" *ngIf="selectedFormatTab == 'text'">
+                    <div class="tr">
+                        <span class="fl">Text Options</span>
+                        <span (click)="showFormatter = !showFormatter" class="hand"><i class="pi pi-times"></i></span>
+                    </div>
+                    <hr />
+                    <p-slider [(ngModel)]="fontSize" [animate]="true" [min]="10" [max]="50"></p-slider>
+                    <hr />
+                    <p-dropdown [options]="fontList" optionLabel="name" name="fontName" [(ngModel)]="fontName">
+                    </p-dropdown>
+                    <hr />
+                    <color-sketch [color]="fontColor" [(ngModel)]="fontColor" color="#000"
+                        (onChangeComplete)="changeFontColor($event)"></color-sketch>
+                    <hr />
+                    <!-- <p-footer> -->
+                    <button pButton (click)="resetFormat($event, 'text')" type="button" label="Reset"
+                        class="ui-button-raised ui-button-rounded ui-button-danger"></button>
+                    <!-- </p-footer> -->
+                </div>
+                <div class="p-col" *ngIf="selectedFormatTab == 'spacing'">
+                    <div class="tr">
+                        <span class="fl">Spacing Options</span>
+                        <span (click)="showFormatter = !showFormatter" class="hand"><i class="pi pi-times"></i></span>
+                    </div>
+                    <hr />
+                </div>
+                <div class="p-col" *ngIf="selectedFormatTab == 'background'">
+                    <div class="tr">
+                        <span class="fl">Background</span>
+                        <span (click)="showFormatter = !showFormatter" class="hand"><i class="pi pi-times"></i></span>
+                    </div>
+                    <hr />
+                    <color-sketch [color]="backgroundColor" [(ngModel)]="backgroundColor" color="#fff"
+                        (onChangeComplete)="changeBackgroundColor($event)"></color-sketch>
+                    <hr />
+                    <div class="tr">
+                        <span class="fl">Canvas borders</span>
+                        <span class="">
+                            <p-checkbox [(ngModel)]="showCanvasBorder" (onClick)="showCanvasBorder = !showCanvasBorder"
+                                [binary]="false"></p-checkbox>
+                        </span>
+                    </div>
+                </div>
+                <div class="p-col" *ngIf="selectedFormatTab == 'ruler'">
+                    <div class="tr">
+                        <span class="fl">Ruler</span>
+                        <span (click)="showFormatter = !showFormatter" class="hand"><i class="pi pi-times"></i></span>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+
+        </p-card>
+
+    </div>
+    <div class="p-col-7" [ngClass]="{'p-col-11':showNotes == false}" id="content"
+        [ngStyle]="{'color': fontColor, 'background-color': backgroundColor, 'font-size': fontSize+'px', 'font-weight': 'regular', 'font-family': fontName.name}">
+
+        <h1>Ethane in the Sky</h1>
+        <p>On March nights, we were treated to the glorious spectacle of Hyakutake spreading across the sky. Astronomers
+            from all over the Earth turned to look at the comet. They were well rewarded. The Hubble Space Telescope got
+            the first-ever look from the earth at the icy nucleus that inside a comet. (It is just around 2 kilometers
+            in size.) For the first time, a comet was seen giving off X-rays faint, but because Hyakutake passed only 15
+            lakh kilometers from the earth. They were caught by an X-ray telescope. Other astronomers have been busy
+            looking the spectrum of the comet. This usually gives a lot of information about the compounds that are in
+            the comet (Jantar Mantar, Sep-Oct ’95). Michael Mumma and Michael Di Santi found methane in the comet,
+            forming almost 1% of the comet’s ice. Until now, methane has only been found in the planets (such as Saturn)
+            and their moons (like Titan). Happy at their success, Mumma and DiSanti then looked even more carefully at
+            the spectral then even more carefully at the spectral lines of the comet. They found the lines of ethane, a
+            compound which has not been found in space before. Ethane is another 1% of the comet’s ice. They are looking
+            at the lines again. Who knows, they might even find something like naphthalene!</p>
+        <b>Rotation of the Earth</b>
+        <p>How fast does the Earth rotate? In 24 hours, obviously, for that is how we define our day. That is how fast
+            the surface of the Earth, where we live, rotates. What about other parts of the earth. That seems silly
+            question. Because if, say, from 100 kilometers below the surface, the inside of the earth rotated at a
+            different speed, the friction between that and the outside would split the crust apart. So the whole Earth
+            has to rotate at the same speed. But that question is not silly after all. Have you experimented with a
+            rotating egg? Below the crust of the Earth lies the mantle, and below that lies core. The core of the earth
+            is believed to be iron. It is liquid up to some depth, but the innermost core is solid iron. It must be
+            something worth seeing, huge iron crystal 2400 kilometers in diameter, as massive as the Moon. That gives
+            the Earth the freedom it needs.</p>
+        <p>The solid core, separated core, separated from the outer hulk of the Earth by the liquid in between, can
+            rotate at a different speed. This was pointed out by two American scientists, Gary Glatzmeier and Paul
+            Roberts. They did some calculation and suggested that the inner core should be rotating slightly faster than
+            24 hours. Geologist Xiaodong Song and seismologist Paul Richards have found that Glatzmeier and Roberts were
+            absolutely right. The inner core goes around in 1 second less than a day. To put it more dramatically, the
+            inner core that was below the western tip of Africa in the year 1900 is under our feet today. How did they
+            find this out? The seismic waves of earthquake (Jantar Mantar, Nov- Dec ’93) travel right through the Earth.
+            When a tremor takes place in Antarctica and is recorded in Alaska, the seismic wave has traveled through the
+            Earth’s core. Because this wave is going eastwards, it should be carried slightly faster through the core.
+            Another wave, going westwards, for instance when an earthquake in New Zealand is recorded in Norway, will be
+            slower. Checking such earthquake data, Song and Richards found that the westward waves were indeed a
+            fraction of a second slower than the eastward ones, and from that they calculated the speed of the core’s
+            rotation. Several questions arise. As is known to physicists, such a difference in speed gives rise to a
+            current (in this case, of billions of amperes) flowing between the solid inner core and the liquid outer
+            core. Such a current must be causing a magnetic field as well. In this linked to the magnetic field of the
+            Earth?</p>
+        <h2>Life on Mars</h2>
+        <p>Four and a half billion years ago, a rock was formed on Mars by some volcanic process. Half a billion years
+            later, this rock was broken into smaller pieces by a meteorite impact nearby. Some ground water also entered
+            the rock. 16 million years ago, an asteroid hit Mars somewhere near where this rock was. The impact threw
+            pieces of the rock into space. One 2 kilogram piece of rock orbited the Sun until 13,000 years ago, when it
+            came close to the Earth. This piece crashed onto an Antarctic glacier. Over 13,000 years, it reached the
+            Allan Hills region of Antarctica, buried inside the ice. In 1984, this meteorite was discovered and named
+            ALH84001. A large number of people worked out this history of the meteorite that we just narrated.</p>
+    </div>
+    <div class="p-col-4" id="notes" [hidden]="!showNotes">
+        <p-button label="Add note" class="fr" (onClick)="addNote()"></p-button>
+        <div class="note"><br /><br /><br /><br />
+            <app-note-editor *ngFor="let note of notes" class="mb-10"></app-note-editor> <br />
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

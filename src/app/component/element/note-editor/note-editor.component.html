@@ -1,0 +1,51 @@
+<quill-editor customToolbarPosition="bottom">
+    <div quill-editor-toolbar>
+        <span class="ql-formats">
+            <button class="ql-bold" [title]="'Bold'"></button>
+            <!-- <button class="ql-italic" [title]="'Italic'"></button>
+            <button class="ql-underline" [title]="'Underline'"></button>
+            <button class="ql-strike" [title]="'Strike'"></button> -->
+
+            <select class="ql-align" [title]="'Aligment'">
+                <option selected></option>
+                <option value="center"></option>
+                <option value="right"></option>
+                <option value="justify"></option>
+            </select>
+
+            <!-- <button class="ql-blockquote" [title]="'Blockquote'"></button> -->
+
+            <!-- <select class="ql-header" [title]="'Header'">
+                <option selected></option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+            </select> -->
+
+            <!-- <select class="ql-size" [title]="'Size'">
+                <option selected></option>
+                <option value="small"></option>
+                <option value="false"></option>
+                <option value="large"></option>
+                <option value="huge"></option>
+            </select> -->
+            <select class="ql-color" [title]="'Color'">
+            </select>
+            <select class="ql-background" [title]="'Background'">
+            </select>
+
+            <button class="ql-list" [title]="'Ordered list'" [value]="'ordered'"></button>
+            <button class="ql-list" [title]="'Bullet list'" [value]="'bullet'"></button>
+
+            <!-- <button class="ql-link" [title]="'Link'"></button> -->
+
+            <!-- <button class="ql-clean" [title]="'Clean'"></button> -->
+            <!-- <button class="ui-button-danger fr" (onClick)="removeNote()" > <i class="pi pi-times "></i> </button> -->
+
+        </span>
+    </div>
+
+</quill-editor>

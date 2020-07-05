@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+.tc {
+    text-align: center;
+}
+.tr {
+    text-align: right;
+}
+
+.fr {
+    float: right;
+}
+.fl {
+    float: left;
+}
+
+.ui-tieredmenu {
+    width: auto !important;
+    // border: none !important;
+}
+
+.ql-editor {
+    height: 100px !important;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.hand {
+    cursor: pointer;
+}
+
+#app-formatter .ui-dropdown {
+    width: 100%;
+}
+
+#app-formatter .ui-card-footer {
+    text-align: center;
+}
